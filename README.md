@@ -1,2 +1,2 @@
-# Frequent Istmst Mining in Python
+# Frequent Itemset Mining in Python
 
