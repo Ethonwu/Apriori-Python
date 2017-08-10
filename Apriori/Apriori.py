@@ -2,6 +2,7 @@
 import copy
 minsupport = 3
 C1={} 
+file = open('example.txt')
 #The dict {} in python such as:my_information = {'name': 'Pusheen the Cat', 'country': 'USA', 'favorite_numbers': [42, 105]}
 #name -> Pusheen the Cat (Key is name , value is Pusheen the cat)
 def Apriori_gen(Itemset, k, lenght):
@@ -17,7 +18,13 @@ def Apriori_gen(Itemset, k, lenght):
                     unionset = ''.join(sorted(unionset))  #Sort itemset by dict order
                     canditate.append(unionset)
     return canditate
-file = open('example.txt')
+def Apriori_prune(Ck,MinSupport):
+    L = []
+    for i in Ck:
+        if Ck[i] >= minsupport:
+            L.append(i)
+    L = sorted(L)
+    return L
 for line in file:
     for item in line.split():
         if item in C1:
@@ -25,14 +32,9 @@ for line in file:
         else:
             C1[item] = 1
 C1.keys().sort()
-print C1.keys()
-print C1.values()
 L1 = []
-for i in C1:
-    if C1[i] >= minsupport:
-        L1.append(i)
-L1.sort()
-#print L1 
+L1 = Apriori_prune(C1,minsupport)
+print L1
 k=2
 test = []
 test = Apriori_gen(L1, k ,len(L1))
