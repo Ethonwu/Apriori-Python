@@ -24,20 +24,23 @@ def Apriori_prune(Ck,MinSupport):
         if Ck[i] >= minsupport:
             L.append(i)
     return sorted(L)
-def Apriori_count_subset(Canditate):
+def Apriori_count_subset(Canditate,Canditate_len):
     Lk = dict()
     file = open('example.txt')
     for l in file:
-        l_string = l.replace(" ","")
-        l_string = set(l_string)
-        l_string.remove("\n")
-        for word in Canditate:
-            w = set(word)
-            w_index = str(word)
-            if w.issubset(l_string):
-                Lk[w_index] += 1
-            else:
-                Lk[w_index] = 1
+        l = str(l.split())
+        print l
+        for i in range (0,Canditate_len):
+            key = str(Canditate[i])
+            count = 0
+            flag = True
+            for k in key:
+                #print k
+                if k not in l:
+                    flag = False
+            if flag:
+                count += 1
+            Lk[key] = count
     file.close()
     print Lk
 
@@ -58,5 +61,6 @@ test = Apriori_gen(L1,len(L1))
 C2={}
 print test
 #C2 = Apriori_count_subset(test)
-Apriori_count_subset(test)
+testlen = len(test)
+Apriori_count_subset(test,testlen)
 #print C2
