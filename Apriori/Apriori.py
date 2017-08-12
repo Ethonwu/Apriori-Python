@@ -30,24 +30,19 @@ def Apriori_count_subset(Canditate,Canditate_len):
     for l in file:
         l = str(l.split())
         count = 0
-        #flag = True
         print l
         for i in range (0,Canditate_len):
             key = str(Canditate[i])
-            #count = 0
             if key not in Lk:
                 Lk[key] = 0
             flag = True
             for k in key:
-                #print k
                 if k not in l:
                     flag = False
             if flag:
-                #count += 1
                 Lk[key] += 1
     file.close()
-    print Lk
-
+    return Lk
 for line in file:
     for item in line.split():
         if item in C1:
@@ -56,15 +51,21 @@ for line in file:
             C1[item] = 1
 file.close()
 C1.keys().sort()
-L1 = []
+L = []
 L1 = Apriori_prune(C1,minsupport)
-#print L1
 k=2
-test = []
-test = Apriori_gen(L1,len(L1))
-C2={}
-print test
-#C2 = Apriori_count_subset(test)
-testlen = len(test)
-Apriori_count_subset(test,testlen)
-#print C2
+
+
+
+
+
+
+
+#L = Apriori_gen(L1,len(L1))
+#print test
+#testlen = len(test)
+#C2 = Apriori_count_subset(test,testlen)
+#L2 = [] 
+#L2 = Apriori_prune(C2,minsupport)
+#print L2
+
