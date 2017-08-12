@@ -62,10 +62,3 @@ while L != []:
     print k,fruquent_itemset
     L = Apriori_gen(fruquent_itemset,len(fruquent_itemset))
     k += 1
-#L = Apriori_gen(L1,len(L1))
-#print test
-#testlen = len(test)
-#L2 = [] 
-#L2 = Apriori_prune(C2,minsupport)
-#print L2
-
