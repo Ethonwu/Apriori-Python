@@ -59,6 +59,8 @@ while L != []:
     C = Apriori_count_subset(L,len(L))
     fruquent_itemset = []
     fruquent_itemset = Apriori_prune(C,minsupport)
-    print k,fruquent_itemset
+    print '===================================='
+    print 'Frequent',k,'-itemset is',fruquent_itemset
+    print '===================================='
     L = Apriori_gen(fruquent_itemset,len(fruquent_itemset))
     k += 1
