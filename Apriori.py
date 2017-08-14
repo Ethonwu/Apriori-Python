@@ -6,6 +6,7 @@ file = open('example.txt')
 #The dict {} in python such as:my_information = {'name': 'Pusheen the Cat', 'country': 'USA', 'favorite_numbers': [42, 105]}
 #name -> Pusheen the Cat (Key is name , value is Pusheen the cat)
 def Apriori_gen(Itemset, lenght):
+    """Too generate new (k+1)-itemsets can see README Join Stage"""
     canditate = []
     canditate_index = 0
     for i in range (0,lenght):
@@ -25,6 +26,7 @@ def Apriori_prune(Ck,MinSupport):
             L.append(i)
     return sorted(L)
 def Apriori_count_subset(Canditate,Canditate_len):
+    """ Use bool to know is subset or not """
     Lk = dict()
     file = open('example.txt')
     for l in file:
@@ -42,6 +44,7 @@ def Apriori_count_subset(Canditate,Canditate_len):
                 Lk[key] += 1
     file.close()
     return Lk
+"""Count one canditate"""
 for line in file:
     for item in line.split():
         if item in C1:
@@ -53,6 +56,9 @@ C1.keys().sort()
 L = []
 L1 = Apriori_prune(C1,minsupport)
 L = Apriori_gen(L1,len(L1))
+print '===================================='
+print 'Frequent 1-itemset is',L1
+print '===================================='
 k=2
 while L != []:
     C = dict()
