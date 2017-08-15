@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-import copy
-minsupport = 3
-C1={} 
-file = open('example.txt')
 #The dict {} in python such as:my_information = {'name': 'Pusheen the Cat', 'country': 'USA', 'favorite_numbers': [42, 105]}
 #name -> Pusheen the Cat (Key is name , value is Pusheen the cat)
 def Apriori_gen(Itemset, lenght):
@@ -44,6 +40,9 @@ def Apriori_count_subset(Canditate,Canditate_len):
                 Lk[key] += 1
     file.close()
     return Lk
+minsupport = 3
+C1={} 
+file = open('example.txt')
 """Count one canditate"""
 for line in file:
     for item in line.split():

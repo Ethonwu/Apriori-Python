@@ -1,7 +1,7 @@
 # Apriori Algorithm in  Python
 ## Introduction 
- This is old mmining algorithm in Mining Association Rules 
- 
+ This is old mining algorithm in mining Association Rules 
+
  And I implement this Algorithm from this paper
  	
 > *R. Agrawal and R. Srikant. “Fast Algorithms for Mining Association Rules.”  Proc. 1994 Int’l Conf. Very Large Data Bases (VLDB ’94), pp. 487-499, Sept. 1994 .io*
